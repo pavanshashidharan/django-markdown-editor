@@ -24,13 +24,13 @@ blocks:
           - checkout
           - cache restore
           - pip install --cache-dir .pip_cache -r requirements.txt
+          - cd martor_demo
+          - python manage.py makemigrations
+          - python manage.py migrate
+          - python manage.py test
       jobs:
         - name: Testing
-          commands:
-            - cd martor_demo
-            - python manage.py makemigrations
-            - python manage.py migrate
-            - python manage.py test
+          commands: []
         - name: Checklist
           commands:
             - cd martor_demo
